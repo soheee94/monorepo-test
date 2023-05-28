@@ -1,0 +1,22 @@
+{
+  "name": "@ui/design-system-v2",
+  "packageManager": "yarn@3.5.1",
+  "private": true,
+  "main": "dist/packages/ui/design-system-v2/src/index.js",
+  "typings": "dist/packages/ui/design-system-v2/src/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.2.5",
+    "@types/react": "^18.2.7",
+    "typescript": "^5.0.4"
+  }
+}

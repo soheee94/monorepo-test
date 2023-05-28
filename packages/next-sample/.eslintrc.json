@@ -1,0 +1,74 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true,
+    "amd": true,
+    "node": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 9, // or 2017
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true
+    }
+  },
+  "plugins": ["@typescript-eslint", "@emotion/eslint-plugin"],
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "17.0.2"
+    },
+    "import/parser": {
+      "typescript-eslint-parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": "./tsconfig.json",
+      "eslint-import-resolver-typescript": true,
+      "babel-module": {},
+      "node": {
+        "extensions": [".ts", ".tsx", ".js", ".jsx"]
+      }
+    }
+  },
+  "rules": {
+    "react/display-name": "off",
+    "react/prop-types": "off",
+    "no-console": "off",
+    "no-unused-vars": "off",
+    "indent": "off",
+    /**
+     * typescript-eslint 사용시에는 공식적으로 사용하지 않는 것이 권장됨.
+     * typescript에서 이미 처리가 되고 있으며, no-undef 규칙은 lint 규칙에 의존하기 때문에 typescript 구성과 다름
+     * ref: https://github.com/typescript-eslint/typescript-eslint/blob/main/docs/linting/TROUBLESHOOTING.md#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
+     */
+    "no-undef": "off",
+    "no-mixed-spaces-and-tabs": "error",
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "key-spacing": ["error", { "beforeColon": false }],
+    "space-infix-ops": "error",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "curly": ["error", "multi-line", "consistent"],
+    "no-else-return": ["error", { "allowElseIf": true }],
+    "implicit-arrow-linebreak": ["error", "beside"]
+  },
+  "overrides": [
+    {
+      /** enable the rule specifically for TypeScript files */
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": [
+          "warn",
+          {
+            "allowExpressions": true
+          }
+        ]
+      }
+    }
+  ],
+  "extends": ["next", "prettier"],
+  "globals": {
+    "closet": true
+  }
+}
